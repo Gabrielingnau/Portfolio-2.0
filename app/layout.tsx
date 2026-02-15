@@ -35,11 +35,11 @@ export const metadata: Metadata = {
     title: "Gabriel Lingnau | Desenvolvedor Front-End",
     description:
       "Conheça meus projetos e minha forma de construir aplicações modernas para a web.",
-    url: "https://portfolio-2-0-lemon-six.vercel.app",
+    url: "https://portfolio-2-0-lemon-six.vercel.app/",
     siteName: "Gabriel Lingnau - Portfólio",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "https://portfolio-2-0-lemon-six.vercel.app/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Preview do portfólio de Gabriel Lingnau",

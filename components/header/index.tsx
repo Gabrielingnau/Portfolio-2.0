@@ -47,7 +47,7 @@ export function Header() {
               className="relative group text-sm font-medium text-muted-foreground hover:text-foreground transition-colors"
             >
               {link.label}
-              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 bg-primary transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
         </nav>
