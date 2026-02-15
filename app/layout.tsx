@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { Toaster } from "sonner";
 
 import { Header } from "@/components/header";
 import { Footer } from "@/components/Footer";
@@ -7,7 +8,6 @@ import { Footer } from "@/components/Footer";
 import { ThemeProvider } from "./providers/theme-provider";
 
 import "./globals.css";
-import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -16,7 +16,6 @@ const playfair = Playfair_Display({
   weight: ["400", "700"],
   subsets: ["latin"],
 });
-
 
 export const metadata: Metadata = {
   title: "Gabriel Lingnau | Desenvolvedor Front-End",
@@ -55,9 +54,14 @@ export const metadata: Metadata = {
       "Projetos, experiências e experimentos em desenvolvimento web.",
     images: ["/og-image.jpg"],
   },
-  metadataBase: new URL("https://seudominio.com"),
+  metadataBase: new URL("https://portfolio-2-0-lemon-six.vercel.app/"),
+  icons: {
+    icon: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+  },
 };
-
 
 export default function RootLayout({
   children,
