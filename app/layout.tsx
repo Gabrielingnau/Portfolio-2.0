@@ -57,9 +57,6 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-2-0-lemon-six.vercel.app/"),
   icons: {
     icon: "/favicon.ico",
-    apple: [
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-    ],
   },
 };
 
