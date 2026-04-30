@@ -20,11 +20,11 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Gabriel Lingnau | Desenvolvedor Front-End",
+  title: "Gabriel Lingnau | Desenvolvedor de software",
   description:
     "Portfólio com meus projetos, experiências e experimentos em desenvolvimento web. Foco em performance, código limpo e interfaces bem construídas.",
   keywords: [
-    "Desenvolvedor Front-End",
+    "Desenvolvedor de software",
     "React",
     "Next.js",
     "TypeScript",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   authors: [{ name: "Gabriel Lingnau" }],
   creator: "Gabriel Lingnau",
   openGraph: {
-    title: "Gabriel Lingnau | Desenvolvedor Front-End",
+    title: "Gabriel Lingnau | Desenvolvedor de software",
     description:
       "Conheça meus projetos e minha forma de construir aplicações modernas para a web.",
     url: "https://portfolio-2-0-lemon-six.vercel.app/",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gabriel Lingnau | Desenvolvedor Front-End",
+    title: "Gabriel Lingnau | Desenvolvedor de software",
     description:
       "Projetos, experiências e experimentos em desenvolvimento web.",
     images: ["/og-image.jpg"],
