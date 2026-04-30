@@ -1,6 +1,6 @@
 "use client";
 
-import { AlertCircle, Github, Globe, Linkedin, Mail, Send } from "lucide-react";
+import { Github, Globe, Linkedin, Mail, Send } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -21,26 +21,44 @@ interface ContactProps {
 
 export function Contact({ data }: ContactProps) {
   const { badge, description, contact_methods_panel } = data.primary;
-  console.log(contact_methods_panel);
+  
   const {
     handleSubmit,
     register,
-    formState: { errors },
+    reset,
+    formState: { errors, isSubmitting },
   } = useForm<FormSchemaContact>({
     resolver: yupResolver(formSchemaContact()),
   });
 
   const iconMap = {
-  GitHub: Github,
-  Linkedin: Linkedin,
-  Mail: Mail,
-};
+    GitHub: Github,
+    Linkedin: Linkedin,
+    Mail: Mail,
+  };
 
-  async function onSubmit() {
-    // Como a função está desativada, avisamos o usuário caso ele tente forçar
-    toast.info(
-      "O envio de e-mails será liberado em breve após a configuração do domínio!",
-    );
+  async function onSubmit(formData: FormSchemaContact) {
+    const toastId = toast.loading("Enviando sua mensagem...");
+
+    try {
+      const response = await fetch("/api/send", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Falha no servidor");
+      }
+
+      toast.success("Mensagem enviada com sucesso!", { id: toastId });
+      reset(); // Limpa o formulário após o sucesso
+    } catch (error) {
+      console.error("Erro ao enviar e-mail:", error);
+      toast.error("Não foi possível enviar a mensagem agora. Tente novamente.", { id: toastId });
+    }
   }
 
   return (
@@ -65,55 +83,56 @@ export function Contact({ data }: ContactProps) {
         </div>
 
         <div className="grid gap-12 md:grid-cols-2">
-          {/* FORM COM OVERLAY DE "EM BREVE" */}
+          {/* FORM ATIVADO */}
           <div className="relative">
             <form
               onSubmit={handleSubmit(onSubmit)}
-              className="space-y-6 opacity-50 pointer-events-none grayscale-[0.5]"
+              className="space-y-6"
             >
-              <div>
-                <Label className="mb-2 block font-medium">Nome</Label>
-                <Input placeholder="Seu nome" {...register("name")} />
+              <div className="space-y-2">
+                <Label htmlFor="name" className="font-medium">Nome</Label>
+                <Input 
+                  id="name"
+                  placeholder="Seu nome" 
+                  {...register("name")} 
+                  className={errors.name ? "border-destructive" : ""}
+                />
+                {errors.name && <p className="text-xs text-destructive">{errors.name.message}</p>}
               </div>
 
-              <div>
-                <Label className="mb-2 block font-medium">Email</Label>
+              <div className="space-y-2">
+                <Label htmlFor="email" className="font-medium">Email</Label>
                 <Input
+                  id="email"
                   type="email"
                   placeholder="seu@email.com"
                   {...register("email")}
+                  className={errors.email ? "border-destructive" : ""}
                 />
+                {errors.email && <p className="text-xs text-destructive">{errors.email.message}</p>}
               </div>
 
-              <div>
-                <Label className="mb-2 block font-medium">Mensagem</Label>
+              <div className="space-y-2">
+                <Label htmlFor="message" className="font-medium">Mensagem</Label>
                 <Textarea
+                  id="message"
                   rows={4}
                   placeholder="Conte sobre seu projeto..."
                   {...register("message")}
+                  className={errors.message ? "border-destructive" : ""}
                 />
+                {errors.message && <p className="text-xs text-destructive">{errors.message.message}</p>}
               </div>
 
-              <Button className="w-full" type="submit" disabled>
+              <Button 
+                className="w-full" 
+                type="submit" 
+                disabled={isSubmitting}
+              >
                 <Send className="mr-2 size-4" />
-                Enviar Mensagem
+                {isSubmitting ? "Enviando..." : "Enviar Mensagem"}
               </Button>
             </form>
-
-            {/* Banner de Aviso */}
-            <div className="absolute -inset-2 z-10 flex flex-col items-center justify-center rounded-xl bg-background/20 backdrop-blur-[2px] text-center p-6 border border-dashed border-border">
-              <AlertCircle className="size-10 text-primary mb-3 opacity-80" />
-              <h4 className="font-bold text-foreground">
-                Formulário em Manutenção
-              </h4>
-              <p className="text-sm text-muted-foreground mt-1 max-w-[280px]">
-                O envio direto por e-mail está temporariamente indisponível
-                enquanto configuro o domínio profissional.
-              </p>
-              <p className="text-xs font-semibold text-primary mt-4 uppercase tracking-widest">
-                Disponível em breve
-              </p>
-            </div>
           </div>
 
           {/* INFO / SOCIAL */}
@@ -124,27 +143,14 @@ export function Contact({ data }: ContactProps) {
               </h3>
 
               <p className="font-inter text-muted-foreground mb-8">
-                Enquanto o formulário está em setup, você pode me contatar
-                diretamente pelo
-                <span className="text-foreground font-medium">
-                  {" "}
-                  LinkedIn
-                </span>{" "}
-                ou <span className="text-foreground font-medium">GitHub</span>.
-                Respondo rapidinho!
+                Fique à vontade para me contatar diretamente pelas redes sociais. 
+                Respondo o mais rápido possível!
               </p>
 
               <div className="flex gap-4">
-                {/* Pela sua imagem, o contact_methods_panel parece ter 1 item (Item 1), 
-         e dentro dele vários links. Se for esse o caso, precisamos mapear os links:
-      */}
                 {contact_methods_panel[0]?.contact_links.map((linkItem, i) => {
                   const url = asLink(linkItem) ?? "#";
-
-                  // Pegamos o texto que você digitou (GitHub, Linkedin, Mail)
                   const label = linkItem.text as keyof typeof iconMap;
-
-                  // Escolhemos o ícone baseado no texto, ou usamos o Globe como padrão
                   const Icon = iconMap[label] || Globe;
 
                   return (
