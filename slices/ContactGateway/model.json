@@ -1,0 +1,60 @@
+{
+  "type": "SharedSlice",
+  "id": "contact_gateway",
+  "name": "ContactGateway",
+  "variations": [
+    {
+      "id": "form_unavailable_split_panel",
+      "name": "Form Unavailable with Direct Links",
+      "description": "Displays the main heading, context, form status message with short explanation, and a panel offering alternative contact methods via external profiles or email links, structured as two panels side by side.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "badge": {
+          "type": "StructuredText",
+          "config": {
+            "single": "paragraph",
+            "label": "Badge"
+          }
+        },
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading1",
+            "label": "Main Title"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em",
+            "label": "Description"
+          }
+        },
+        "contact_methods_panel": {
+          "type": "Group",
+          "config": {
+            "label": "Contact Methods Panel",
+            "fields": {
+              "contact_links": {
+                "type": "Link",
+                "config": {
+                  "label": "Contact Links",
+                  "allowText": true,
+                  "repeat": true,
+                  "variants": [
+                    "Icon Only",
+                    "Icon and Text"
+                  ],
+                  "select": null
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

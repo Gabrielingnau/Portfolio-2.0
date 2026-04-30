@@ -1,0 +1,89 @@
+{
+  "type": "SharedSlice",
+  "id": "project_gallery",
+  "name": "ProjectGallery",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Standard project gallery layout with section heading, description, and grid of project cards featuring media, text, badges, and action buttons.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading1",
+            "label": "Heading"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "single": "paragraph,strong,em,hyperlink",
+            "label": "Description"
+          }
+        },
+        "projects": {
+          "type": "Group",
+          "config": {
+            "label": "Projects",
+            "fields": {
+              "media": {
+                "type": "Text",
+                "config": {
+                  "label": "media",
+                  "placeholder": ""
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title"
+                }
+              },
+              "summary": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph,strong,em,hyperlink",
+                  "label": "Summary"
+                }
+              },
+              "badges": {
+                "type": "Link",
+                "config": {
+                  "label": "badges",
+                  "placeholder": "",
+                  "select": null,
+                  "allowTargetBlank": true,
+                  "allowText": true,
+                  "repeat": true
+                }
+              },
+              "preview_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Preview Link",
+                  "allowText": true,
+                  "repeat": false,
+                  "select": null
+                }
+              },
+              "code_link": {
+                "type": "Link",
+                "config": {
+                  "label": "Code Link",
+                  "allowText": true,
+                  "repeat": false,
+                  "select": null
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

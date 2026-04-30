@@ -1,0 +1,113 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Husband"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Occaecat voluptate incididunt est Lorem velit incididunt esse consequat dolore nisi amet labore aliqua. Adipisicing dolore ex adipisicing dolore id tempor. Adipisicing incididunt aliquip veniam magna duis ex id consectetur dolore amet."
+						}
+					}
+				]
+			},
+			"projects": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"title",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "reader",
+									"type": "Text"
+								}
+							],
+							[
+								"summary",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Qui dolore consectetur proident aliqua laborum deserunt duis."
+											}
+										}
+									]
+								}
+							],
+							[
+								"preview_link",
+								{
+									"key": "48164650-1404-4db0-aaff-86624e4cbf36",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://prismic.io",
+										"text": "goose"
+									}
+								}
+							],
+							[
+								"code_link",
+								{
+									"key": "55f75982-eaf9-4ceb-8a81-28293b73e710",
+									"__TYPE__": "LinkContent",
+									"value": {
+										"__TYPE__": "ExternalLink",
+										"url": "https://slicemachine.dev",
+										"text": "process"
+									}
+								}
+							],
+							[
+								"media",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "coffee",
+									"type": "Text"
+								}
+							],
+							[
+								"badges",
+								{
+									"__TYPE__": "RepeatableContent",
+									"type": "Link",
+									"value": [
+										{
+											"key": "2c57e18a-edf5-418b-bd5e-fba579f3ff47",
+											"__TYPE__": "LinkContent",
+											"value": {
+												"__TYPE__": "ExternalLink",
+												"url": "https://prismic.io",
+												"text": "seven"
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

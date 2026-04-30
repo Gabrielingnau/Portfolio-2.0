@@ -1,0 +1,74 @@
+{
+  "type": "SharedSlice",
+  "id": "hero_intro",
+  "name": "HeroIntro",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "description": "Hero with title, subtitle, description, two call-to-action buttons, and a social links row.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "intro_label": {
+          "type": "StructuredText",
+          "config": {
+            "single": "paragraph",
+            "label": "Intro Label"
+          }
+        },
+        "headline": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading1",
+            "label": "Headline"
+          }
+        },
+        "subtitle": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading2",
+            "label": "Subtitle"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Description"
+          }
+        },
+        "cta_buttons": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Buttons",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": false,
+            "allowText": true,
+            "repeat": true,
+            "variants": [
+              "default",
+              "secondary"
+            ]
+          }
+        },
+        "social_links": {
+          "type": "Link",
+          "config": {
+            "label": "Social/Profile Links",
+            "allowText": false,
+            "repeat": true,
+            "variants": [
+              "GitHub",
+              "LinkedIn"
+            ],
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

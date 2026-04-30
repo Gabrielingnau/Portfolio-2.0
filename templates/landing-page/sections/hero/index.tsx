@@ -1,12 +1,27 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Download, Github, Linkedin } from "lucide-react";
+import { Github, Linkedin } from "lucide-react";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
+import { Content, asLink } from "@prismicio/client";
+import { PrismicRichText, PrismicText } from "@prismicio/react";
 
-export function Hero() {
+interface HeroProps {
+  data: Content.HeroIntroSlice;
+}
+
+export function Hero({ data }: HeroProps) {
+  const {
+    intro_label,
+    headline,
+    subtitle,
+    description,
+    cta_buttons,
+    social_links,
+  } = data.primary;
+
   return (
     <section
       id="home"
@@ -25,16 +40,16 @@ export function Hero() {
             transition={{ delay: 0.2 }}
             className="text-inter-500-14 uppercase text-muted-foreground"
           >
-            Olá, eu sou
+            <PrismicText field={intro_label} />
           </motion.span>
 
           <motion.h1
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="text-4xl sm:text-5xl md:text-inter-700-72 text-inter-700-72 whitespace-nowrap font-bold text-foreground"
+            className="text-4xl sm:text-5xl md:text-inter-700-72 whitespace-nowrap font-bold text-foreground text-center"
           >
-            Gabriel Developer
+            <PrismicText field={headline} />
           </motion.h1>
 
           <motion.h3
@@ -43,19 +58,17 @@ export function Hero() {
             transition={{ delay: 0.5 }}
             className="text-lg sm:text-inter-500-24 text-primary"
           >
-            Frontend Developer
+            <PrismicText field={subtitle} />
           </motion.h3>
 
-          <motion.p
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
             className="text-inter-400-16 text-muted-foreground text-center max-w-xl"
           >
-            Transformo ideias em experiências digitais elegantes e
-            performáticas. Especializado em React, TypeScript e interfaces
-            modernas.
-          </motion.p>
+            <PrismicRichText field={description} />
+          </motion.div>
         </div>
 
         <motion.div
@@ -64,20 +77,22 @@ export function Hero() {
           transition={{ delay: 0.9 }}
           className="flex items-center justify-center sm:gap-4 gap-2"
         >
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-            <Button>
-              <Link href="#projects">Ver Projetos</Link>
-            </Button>
-          </motion.div>
+          {cta_buttons.map((item, index) => {
+            // asLink resolve a URL independente se for link Web ou Documento
+            const url = asLink(item) ?? "#";
 
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.98 }}>
-            <Button variant="secondary">
-              <Download size={16} />
-              <Link href="#projects" className="text-foreground">
-                Baixar CV
-              </Link>
-            </Button>
-          </motion.div>
+            return (
+              <motion.div
+                key={index}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Button variant={item.variant} asChild>
+                  <Link href={url}>{item.text}</Link>
+                </Button>
+              </motion.div>
+            );
+          })}
         </motion.div>
 
         <motion.div
@@ -86,25 +101,22 @@ export function Hero() {
           transition={{ delay: 1.1 }}
           className="flex items-center justify-center gap-4"
         >
-          <motion.div whileHover={{ y: -4 }}>
-            <Link
-              href="https://github.com/Gabrielingnau"
-              target="_blank"
-              className="transition-colors duration-200 hover:text-primary text-muted-foreground"
-            >
-              <Github size={20} />
-            </Link>
-          </motion.div>
+          {social_links.map((item, index) => {
+            const url = asLink(item) ?? "#";
+            const IconComponent = item.variant === "GitHub" ? Github : Linkedin;
 
-          <motion.div whileHover={{ y: -4 }}>
-            <Link
-              href="https://linkedin.com"
-              target="_blank"
-              className="transition-colors duration-200 hover:text-primary text-muted-foreground"
-            >
-              <Linkedin size={20} />
-            </Link>
-          </motion.div>
+            return (
+              <motion.div key={index} whileHover={{ y: -4 }}>
+                <Link
+                  href={url}
+                  target="_blank"
+                  className="transition-colors duration-200 hover:text-primary text-muted-foreground"
+                >
+                  <IconComponent size={20} />
+                </Link>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </motion.div>
     </section>

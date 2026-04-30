@@ -1,0 +1,132 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "with_video_and_features",
+		"primary": {
+			"intro_caption": {
+				"__TYPE__": "FieldContent",
+				"value": "wait",
+				"type": "Text"
+			},
+			"intro_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Culpa esse commodo ut laborum ut dolore eiusmod commodo."
+						}
+					}
+				]
+			},
+			"profile_highlight": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading3",
+						"content": {
+							"text": "Energy"
+						}
+					}
+				]
+			},
+			"profile_summary": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Nostrud nisi cupidatat ut consequat quis aliqua ex cillum cupidatat ea. Est eiusmod qui velit ea dolor nulla est aute in est consectetur laborum aute cillum amet."
+						}
+					}
+				]
+			},
+			"technology_tags": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"tag",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "uncle",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"feature_list": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"feature_title",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Enim consequat magna aliqua velit dolore. Minim pariatur ad exercitation minim nulla."
+											}
+										}
+									]
+								}
+							],
+							[
+								"feature_icon",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "birth",
+									"type": "Text"
+								}
+							],
+							[
+								"feature_description",
+								{
+									"__TYPE__": "StructuredTextContent",
+									"value": [
+										{
+											"type": "paragraph",
+											"content": {
+												"text": "Magna officia anim cupidatat magna minim culpa anim labore laborum cupidatat amet eiusmod adipisicing deserunt. Et cupidatat eiusmod esse esse excepteur enim. Consequat non esse sint culpa anim laborum."
+											}
+										}
+									]
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Eu nostrud magna commodo nostrud incididunt elit ipsum ipsum consectetur magna deserunt qui anim et."
+						}
+					}
+				]
+			},
+			"subtitle": {
+				"__TYPE__": "FieldContent",
+				"value": "stomach",
+				"type": "Text"
+			},
+			"intro_media": {
+				"__TYPE__": "FieldContent",
+				"value": "model",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

@@ -2,8 +2,10 @@ import type { Metadata } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { Toaster } from "sonner";
 
-import { Header } from "@/components/header";
 import { Footer } from "@/components/Footer";
+import { Header } from "@/components/header";
+import { repositoryName } from "@/lib/prismicio";
+import { PrismicPreview } from "@prismicio/next";
 
 import { ThemeProvider } from "./providers/theme-provider";
 
@@ -82,6 +84,7 @@ export default function RootLayout({
           <Footer />
         </ThemeProvider>
       </body>
+      <PrismicPreview repositoryName={repositoryName} />
     </html>
   );
 }

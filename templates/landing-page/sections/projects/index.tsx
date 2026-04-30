@@ -2,14 +2,23 @@
 
 import Link from "next/link";
 import { useState } from "react";
-
-import { projects, type Project } from "@/data/projects";
 import { Button } from "@/components/ui/button";
 import ProjectCard from "@/components/project-card";
 import ProjectModal from "@/components/project-modal";
+import { Content } from "@prismicio/client";
+import { PrismicText } from "@prismicio/react";
 
-export function Projects() {
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+interface ProjectsProps {
+  data: Content.ProjectGallerySlice;
+}
+
+export function Projects({ data }: ProjectsProps) {
+   const {
+    description,
+    projects
+  } = data.primary;
+
+  const [selectedProject, setSelectedProject] = useState<Content.ProjectGallerySliceDefaultPrimaryProjectsItem | null>(null);
 
   const visibleProjects = projects.slice(0, 3);
   const hasMore = projects.length > 3;
@@ -27,14 +36,14 @@ export function Projects() {
             Meus <span className="text-primary">Projetos</span>
           </h2>
           <p className="text-inter-400-16 text-muted-foreground mx-auto">
-            Uma seleção dos meus trabalhos mais recentes e relevantes.
+            <PrismicText field={description} />
           </p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {visibleProjects.map((project, i) => (
+          {projects.map((project, i) => (
             <ProjectCard
-              key={project.id}
+              key={i}
               project={project}
               index={i}
               onClick={() => setSelectedProject(project)}

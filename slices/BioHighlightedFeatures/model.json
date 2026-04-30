@@ -1,0 +1,110 @@
+{
+  "type": "SharedSlice",
+  "id": "bio_highlighted_features",
+  "name": "BioHighlightedFeatures",
+  "variations": [
+    {
+      "id": "with_video_and_features",
+      "name": "With Video and Features",
+      "description": "Displays an embedded video with caption, profile text with technology tags, and a grid of featured principles or capabilities.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "subtitle": {
+          "type": "Text",
+          "config": {
+            "label": "SubTitle",
+            "placeholder": ""
+          }
+        },
+        "intro_media": {
+          "type": "Text",
+          "config": {
+            "label": "intro_media",
+            "placeholder": ""
+          }
+        },
+        "intro_caption": {
+          "type": "Text",
+          "config": {
+            "label": "Intro Caption"
+          }
+        },
+        "intro_description": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Intro Description"
+          }
+        },
+        "profile_highlight": {
+          "type": "StructuredText",
+          "config": {
+            "single": "heading3,strong,hyperlink",
+            "label": "Profile Highlight"
+          }
+        },
+        "profile_summary": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Profile Summary"
+          }
+        },
+        "technology_tags": {
+          "type": "Group",
+          "config": {
+            "label": "Technology Tags",
+            "fields": {
+              "tag": {
+                "type": "Text",
+                "config": {
+                  "label": "Tag"
+                }
+              }
+            }
+          }
+        },
+        "feature_list": {
+          "type": "Group",
+          "config": {
+            "label": "Feature List",
+            "fields": {
+              "feature_title": {
+                "type": "StructuredText",
+                "config": {
+                  "single": "paragraph,strong",
+                  "label": "Feature Title"
+                }
+              },
+              "feature_icon": {
+                "type": "Text",
+                "config": {
+                  "label": "Feature Icon"
+                }
+              },
+              "feature_description": {
+                "type": "StructuredText",
+                "config": {
+                  "multi": "paragraph",
+                  "label": "Feature Description"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}
