@@ -93,6 +93,11 @@ export function Hero({ data }: HeroProps) {
               </motion.div>
             );
           })}
+          <Button variant="secondary" asChild>
+            <Link href="/curriculo.pdf" download>
+              Baixar CV
+            </Link>
+          </Button>
         </motion.div>
 
         <motion.div
