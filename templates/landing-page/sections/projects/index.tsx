@@ -1,10 +1,11 @@
-'use client'
+"use client";
 
 import Link from "next/link";
 import { useState } from "react";
+
+import { ProjectCard } from "@/components/project-card";
+import { ProjectModal } from "@/components/project-modal";
 import { Button } from "@/components/ui/button";
-import ProjectCard from "@/components/project-card";
-import ProjectModal from "@/components/project-modal";
 import { Content } from "@prismicio/client";
 import { PrismicText } from "@prismicio/react";
 
@@ -13,12 +14,12 @@ interface ProjectsProps {
 }
 
 export function Projects({ data }: ProjectsProps) {
-   const {
-    description,
-    projects
-  } = data.primary;
+  const { description, projects } = data.primary;
 
-  const [selectedProject, setSelectedProject] = useState<Content.ProjectGallerySliceDefaultPrimaryProjectsItem | null>(null);
+  const [selectedProject, setSelectedProject] =
+    useState<Content.ProjectGallerySliceDefaultPrimaryProjectsItem | null>(
+      null,
+    );
 
   const visibleProjects = projects.slice(0, 3);
   const hasMore = projects.length > 3;
@@ -29,9 +30,7 @@ export function Projects({ data }: ProjectsProps) {
       className="container-spacing relative py-32 overflow-hidden"
     >
       <div className="max-w-(--max-content) mx-auto">
-        <div
-          className="text-center mb-6 sm:mb-10"
-        >
+        <div className="text-center mb-6 sm:mb-10">
           <h2 className="text-4xl sm:text-5xl md:text-inter-700-56 text-inter-700-56 text-foreground mb-4">
             Meus <span className="text-primary">Projetos</span>
           </h2>
